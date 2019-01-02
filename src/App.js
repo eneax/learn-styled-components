@@ -48,13 +48,20 @@ const above = Object.keys(size).reduce((acc, label) => {
 
 
 
-
 // make Fake aware of the styles that will be applied to it
 const Fake = ({ className }) => (
   <div className={className}>
     <h2>I'm a fake component</h2>
   </div>
 );
+
+
+// CSS Helper --> Needed for props in mixins
+const fixedTop = css`
+  position: fixed;
+  top: ${({ top }) => top + 'px'};
+  left: 0;
+`;
 
 
 // styles
@@ -83,6 +90,7 @@ const Button = styled.button`
 // extend Button and create a new one of different color
 const CancelButton = styled(Button)`
   background: tomato;
+  ${fixedTop};
 `;
 
 const AppWrapper = styled.div`
@@ -121,7 +129,7 @@ class App extends Component {
           </Heading>
 
           <Button>Save</Button>
-          <CancelButton>Cancel</CancelButton>
+          <CancelButton top="100">Cancel</CancelButton>
           
           <Heading>Heading Two</Heading>
           <a
