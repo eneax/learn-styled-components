@@ -3,6 +3,16 @@ import styled from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
 
+
+// make Fake aware of the styles that will be applied to it
+const Fake = ({ className }) => (
+  <div className={className}>
+    <h2>I'm a fake component</h2>
+  </div>
+);
+
+
+// styles
 const Heading = styled.h1`
   font-size: 2rem;
 `;
@@ -37,11 +47,20 @@ const AppWrapper = styled.div`
     }
   }
 
-  /* select every Button component inside of AppWrapper */
+  /* select every Button (not CancelButton) component inside of AppWrapper */
   ${Button} {
     margin-bottom: 2rem;
   }
 `;
+
+
+// DoubleFake is a styled version of Fake
+const DoubleFake = styled(Fake)`
+  h2 {
+    color: red;
+  }
+`;
+
 
 class App extends Component {
   render() {
@@ -65,6 +84,9 @@ class App extends Component {
           >
             Learn React
           </a>
+
+          <DoubleFake />
+          <Fake />
         </header>
       </AppWrapper>
     );
