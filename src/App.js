@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
+
+const Heading = styled.h1`
+  font-size: 2rem;
+`;
 
 class App extends Component {
   render() {
@@ -8,9 +13,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
+          <Heading>
             Edit <code>src/App.js</code> and save to reload.
-          </p>
+          </Heading>
           <a
             className="App-link"
             href="https://reactjs.org"
