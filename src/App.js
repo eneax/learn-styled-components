@@ -1,7 +1,52 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
+
+// Media Queries
+const size = {
+  small: 400,
+  med: 960,
+  large: 1140
+};
+
+
+// ! Media Queries in Pixels
+const above = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `
+  return acc;
+}, {});
+
+const below = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `
+  return acc;
+}, {});
+
+
+/* 
+
+! Media Queries in Em
+
+const above = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${size[label] / 16 }em) {
+      ${css(...args)}
+    }
+  `
+  return acc;
+}, {});
+
+*/
+
+
 
 
 // make Fake aware of the styles that will be applied to it
@@ -15,6 +60,9 @@ const Fake = ({ className }) => (
 // styles
 const Heading = styled.h1`
   font-size: 2rem;
+  ${above.med`
+    color: blue;
+  `}
 `;
 
 const color = "white";
