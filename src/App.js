@@ -10,16 +10,21 @@ const Heading = styled.h1`
 const color = "white";
 
 const Button = styled.button`
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 4px;
   border: none;
   color: ${color};
   font-size: 2rem;
-
+  background: indigo;
   /* if props.type === 'cancel', then set the background to tomato */
   /* ${props => props.type === 'cancel' && 'background: tomato;'} */
   /* background: ${props => (props.type === 'cancel' ? 'tomato' : 'indigo')}; */
-  background: ${({ type }) => (type === 'cancel' ? 'tomato' : 'indigo')};
+  /* background: ${({ type }) => (type === 'cancel' ? 'tomato' : 'indigo')}; */
+`;
+
+// extend Button and create a new one of different color
+const CancelButton = styled(Button)`
+  background: tomato;
 `;
 
 const AppWrapper = styled.div`
@@ -28,7 +33,7 @@ const AppWrapper = styled.div`
   header {
     background: teal;
     &:hover {
-      background: gold;
+      color: gold;
     }
   }
 `;
@@ -44,7 +49,7 @@ class App extends Component {
           </Heading>
 
           <Button>Save</Button>
-          <Button type="cancel">Cancel</Button>
+          <CancelButton>Cancel</CancelButton>
           
           <Heading>Heading Two</Heading>
           <a
