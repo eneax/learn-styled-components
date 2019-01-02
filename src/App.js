@@ -36,6 +36,11 @@ const AppWrapper = styled.div`
       color: gold;
     }
   }
+
+  /* select every Button component inside of AppWrapper */
+  ${Button} {
+    margin-bottom: 2rem;
+  }
 `;
 
 class App extends Component {
