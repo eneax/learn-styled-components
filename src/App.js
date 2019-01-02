@@ -7,24 +7,36 @@ const Heading = styled.h1`
   font-size: 2rem;
 `;
 
+const color = "white";
+
 const Button = styled.button`
-  background: indigo;
   padding: 5px 10px;
   border-radius: 4px;
   border: none;
-  color: white;
+  color: ${color};
   font-size: 2rem;
 
   /* if props.type === 'cancel', then set the background to tomato */
-  ${props => props.type === 'cancel' && 'background: tomato;'}
+  /* ${props => props.type === 'cancel' && 'background: tomato;'} */
   /* background: ${props => (props.type === 'cancel' ? 'tomato' : 'indigo')}; */
-  /* background: ${({type}) => (type === 'cancel' ? 'tomato' : 'indigo')}; */
+  background: ${({ type }) => (type === 'cancel' ? 'tomato' : 'indigo')};
+`;
+
+const AppWrapper = styled.div`
+  text-align: center;
+
+  header {
+    background: teal;
+    &:hover {
+      background: gold;
+    }
+  }
 `;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <AppWrapper>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Heading>
@@ -44,7 +56,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-      </div>
+      </AppWrapper>
     );
   }
 }
