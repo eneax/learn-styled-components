@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from './Global';
 
 // Media Queries
 const size = {
@@ -143,6 +143,8 @@ class App extends Component {
 
           <DoubleFake />
           <Fake />
+
+          <GlobalStyle />
         </header>
       </AppWrapper>
     );
