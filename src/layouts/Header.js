@@ -2,22 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import logo from '../logo.svg';
 
-const Header = () => {
-  return (
-    <AppHeader>
-      <img src={logo} alt="logo" className="logo"/>
-    </AppHeader>
-  )
-};
+const Header = ({ className }) => (
+  <header className={className}>
+    <img src={logo} alt="logo" className="logo" />
+  </header>
+);
 
 
 // styles
-const AppHeader = styled.header`
+export default styled(Header)`
   background: #524763;
   padding: 10px 5%;
   .logo {
     width: 60px;
   }
 `;
-
-export default Header;
