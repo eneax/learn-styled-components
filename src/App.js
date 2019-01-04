@@ -37,7 +37,7 @@ class App extends Component {
             <ThemeProvider theme={themeTwo}>
               <Card>
                 <h2>Card Heading</h2>
-                <Card.Button>Say Hello</Card.Button>
+                <Card.Button as="a">Say Hello</Card.Button>
                 <Card.Button modifiers="cancel">Say GoodBye</Card.Button>
               </Card>
             </ThemeProvider>
