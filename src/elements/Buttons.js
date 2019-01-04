@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { lighten } from 'polished';
 import { teal, elevation } from '../utilities';
 
 export const Button = styled.button`
@@ -8,7 +9,7 @@ export const Button = styled.button`
   color: white;
   font-size: 2rem;
   ${elevation[1]};
-  transition: .3s ease box-shadow;
+  transition: .3s ease box-shadow background;
   background: ${teal};
   /* if props.type === 'cancel', then set the background to tomato */
   /* ${props => props.type === 'cancel' && 'background: tomato;'} */
@@ -16,6 +17,7 @@ export const Button = styled.button`
   /* background: ${({ type }) => (type === 'cancel' ? 'tomato' : 'indigo')}; */
   
   &:hover {
+    background: ${lighten(0.2, teal)};
     ${elevation[2]};
   }
 
@@ -32,6 +34,9 @@ export const Button = styled.button`
     if (type === 'cancel') {
       return `
         background: tomato;
+        &:hover {
+          background: ${lighten(0.2, 'tomato')};
+        }
       `;
     }
   }}
