@@ -1,6 +1,18 @@
 import styled from 'styled-components';
+import { applyStyleModifiers } from 'styled-components-modifiers';
 import { lighten } from 'polished';
 import { teal, elevation } from '../utilities';
+
+const BUTTON_MODIFIERS = {
+  small: () => `
+    font-size: 1rem;
+    padding: 3px 10px;
+  `,
+
+  cancel: () => `
+    background: tomato;
+  `
+}
 
 export const Button = styled.button`
   padding: 5px 20px;
@@ -21,16 +33,16 @@ export const Button = styled.button`
     ${elevation[2]};
   }
 
-  ${({ size }) => {
+  /* ${({ size }) => {
     if (size === 'small') {
       return `
         font-size: 1rem;
         padding: 3px 10px;
       `;
     }
-  }}
+  }} */
 
-  ${({ type }) => {
+  /* ${({ type }) => {
     if (type === 'cancel') {
       return `
         background: tomato;
@@ -39,7 +51,10 @@ export const Button = styled.button`
         }
       `;
     }
-  }}
+  }} */
+
+
+  ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `;
 
 // extend Button and create a new one of different color
