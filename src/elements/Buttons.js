@@ -9,8 +9,8 @@ const BUTTON_MODIFIERS = {
     padding: 3px 10px;
   `,
 
-  cancel: () => `
-    background: tomato;
+  cancel: ({ theme }) => `
+    background: ${theme.colors.secondary};
   `
 }
 
@@ -22,7 +22,8 @@ export const Button = styled.button`
   font-size: 2rem;
   ${elevation[1]};
   transition: .3s ease box-shadow background;
-  background: ${teal};
+  background: ${props => props.theme.colors.primary};
+  /* background: ${teal}; */
   /* if props.type === 'cancel', then set the background to tomato */
   /* ${props => props.type === 'cancel' && 'background: tomato;'} */
   /* background: ${props => (props.type === 'cancel' ? 'tomato' : 'indigo')}; */
