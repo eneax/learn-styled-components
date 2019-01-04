@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components/macro';
 import GlobalStyle from './Global';
 import Header from './layouts/Header';
 import { Card, Button } from './elements';
@@ -25,7 +25,14 @@ class App extends Component {
         <div>
           <Header />
           <GlobalStyle />
-          <main>
+          <main
+            css={`
+              background: red;
+              h2 {
+                font-size: 3rem;
+              }
+            `}
+          >
             <Button>Hello</Button>
             <ThemeProvider theme={themeTwo}>
               <Card>
@@ -45,3 +52,11 @@ class App extends Component {
 }
 
 export default App;
+
+
+// const Fake = styled.main`
+//   background: red;
+//   h2 {
+//     font-size: 3rem;
+//   }
+// `;
